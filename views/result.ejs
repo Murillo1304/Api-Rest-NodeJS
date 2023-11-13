@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Resultado de pago</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <% include partials/_header %>
+  </head>
+  <% include partials/_navbar %>
+  <section class="container" >
+    <div class="row">
+      <div class="col-md-4"></div>
+      <div class="col-md-4">
+        <h1>Resultado de pago</h1>
+
+        <% if(response == 'PAID'){ %>
+          <p>Estado:  <%= response %></p>
+          <p>Monto: S/.  <%= orderDetails.orderTotalAmount %></p>
+          <p>ID Orden:  <%= orderDetails.orderId %></p>
+    
+        <% } else{ %>
+          <p>Estado:  <%= response %></p>
+        <% } %>
+          <form action="/" method="get">
+            <button class="btn btn-primary">
+                Volver a probar
+            </button>
+          </form>
+      </div>
+      <div class="col-md-4"></div>
+    </div>
+  </section>
+  <% include partials/_footer %>
+</html>
